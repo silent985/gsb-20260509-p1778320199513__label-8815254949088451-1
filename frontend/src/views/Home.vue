@@ -156,14 +156,13 @@ const handleLogout = async () => {
 onMounted(async () => {
   if (!userInfo.value) {
     try {
-      await authStore.getUserInfo();
+      await authStore.fetchUserInfo();
     } catch (error) {
       ElMessage.error('获取用户信息失败');
       router.push('/login');
     }
   }
   
-  // 如果未认证，跳转到登录页
   if (!authStore.getIsAuthenticated) {
     router.push('/login');
   }
