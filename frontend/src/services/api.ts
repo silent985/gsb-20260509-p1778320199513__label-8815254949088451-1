@@ -83,7 +83,7 @@ export const login = (data: { phone: string; password: string; verificationCode:
 };
 
 // 注册API
-export const register = (data: {
+export const register = (_data: {
   phone: string;
   email: string;
   idCard: string;
@@ -97,7 +97,7 @@ export const register = (data: {
 };
 
 // 发送验证码API
-export const sendVerificationCode = (data: { phone: string; type: string }) => {
+export const sendVerificationCode = (_data: { phone: string; type: string }) => {
   // 模拟发送验证码成功
   return Promise.resolve({
     message: '验证码发送成功'

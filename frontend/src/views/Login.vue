@@ -93,12 +93,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, computed } from 'vue';
+import { ref, reactive } from 'vue';
 import { useRouter } from 'vue-router';
 import { ElMessage } from 'element-plus';
 import { useAuthStore } from '../store/auth';
 import { validatePhone, validatePassword } from '../utils/validation';
-import { sendVerificationCode } from '../services/api';
 import { generateVerificationCode } from '../utils/crypto';
 
 const router = useRouter();
