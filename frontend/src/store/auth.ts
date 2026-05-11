@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { login, register, getUserInfo as fetchUserInfo, logout as logoutApi } from '../services/api';
+import { login, register, getUserInfo as fetchUserInfoApi, logout as logoutApi } from '../services/api';
 import { storeToken, removeToken, storeUserInfo, removeUserInfo, getToken, getUserInfo as getStoredUserInfo } from '../utils/crypto';
 
 interface UserInfo {
@@ -76,10 +76,10 @@ export const useAuthStore = defineStore('auth', {
     },
     
     // 获取用户信息
-    async getUserInfo() {
+    async fetchUserInfo() {
       try {
         this.isLoading = true;
-        const response = await fetchUserInfo();
+        const response = await fetchUserInfoApi();
         const user = response;
         
         // 存储用户信息
