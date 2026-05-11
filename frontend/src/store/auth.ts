@@ -9,6 +9,9 @@ interface UserInfo {
   nickname: string;
   avatar: string;
   status: string;
+  idCard?: string;
+  address?: string;
+  createdAt?: string;
 }
 
 interface AuthState {
@@ -76,7 +79,7 @@ export const useAuthStore = defineStore('auth', {
     },
     
     // 获取用户信息
-    async getUserInfo() {
+    async fetchUserInfo() {
       try {
         this.isLoading = true;
         const response = await fetchUserInfo();
